@@ -1,0 +1,170 @@
+.details-accordion-section {
+  padding: 8rem 0;
+  // Subtle background blobs to match the clean aesthetic
+  background: 
+    radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 1) 0%, transparent 20%),
+    radial-gradient(circle at 90% 80%, rgba(240, 240, 240, 1) 0%, transparent 20%),
+    rgb(255, 255, 255); 
+  color: #0f172a;
+
+  .layout-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+
+    @media (min-width: 900px) {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 6rem;
+    }
+  }
+
+  // Left Column
+  .left-col {
+    flex: 1;
+    position: sticky;
+    top: 6rem; // Sticky scroll effect
+
+    h2 {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      color: #0f172a;
+      letter-spacing: -0.02em;
+    }
+
+    .subtitle {
+      font-size: 1.125rem;
+      color: #64748b; // Muted foreground
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      max-width: 90%;
+    }
+
+    .support-link {
+       display: flex;
+       align-items: center;
+       gap: 0.5rem;
+       font-size: 1rem;
+       color: #64748b;
+       
+       a {
+         color: #0f172a;
+         text-decoration: underline;
+         font-weight: 600;
+         &:hover { color: #db2777; }
+       }
+    }
+  }
+
+  // Right Column
+  .right-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem; // Space between groups
+  }
+
+  .accordion-group {
+    h3 {
+      font-size: 0.875rem; // Small label style
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 700;
+      color: #94a3b8;
+      margin-bottom: 1rem;
+    }
+  }
+
+  .accordion-item {
+    border-bottom: 1px solid #e2e8f0;
+
+    .accordion-trigger {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 0;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #0f172a;
+      transition: color 0.2s;
+
+      &:hover {
+        color: #334155;
+        // text-decoration: underline; // Optional, like the reference
+      }
+      
+      .chevron {
+        color: #cbd5e1;
+        transition: transform 0.2s ease;
+      }
+    }
+
+    &.is-open {
+      .accordion-trigger .chevron {
+        transform: rotate(180deg);
+        color: #0f172a;
+      }
+      .accordion-content {
+          grid-template-rows: 1fr;
+          opacity: 1;
+          padding-bottom: 1.5rem;
+      }
+    }
+
+    // Smooth Open Animation Grid Trick
+    .accordion-content {
+      display: grid;
+      grid-template-rows: 0fr;
+      opacity: 0;
+      transition: grid-template-rows 0.3s ease-out, opacity 0.3s ease, padding 0.3s ease;
+      overflow: hidden;
+      
+      .inner-content {
+        min-height: 0;
+        color: #475569;
+        font-size: 1.125rem;
+        line-height: 1.6;
+      }
+    }
+  }
+
+  // Content Specifics
+  .warning-list {
+    margin-bottom: 1rem;
+    .w-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #7f1d1d; // Dark red for warning text
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      .cross { color: #ef4444; font-weight: bold; }
+    }
+  }
+  
+  .highlight {
+     font-weight: 800;
+     color: #0f172a;
+     font-size: 1.25rem;
+  }
+
+  .target-list {
+    list-style: none;
+    padding: 0;
+    li {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+      .check { color: #10b981; }
+    }
+  }
+}

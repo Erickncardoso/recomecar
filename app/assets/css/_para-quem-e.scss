@@ -1,0 +1,38 @@
+.para-quem-e-section {
+  padding: $spacing-xl 0;
+  
+  h2 {
+    text-align: center;
+    color: $color-primary;
+  }
+
+  .target-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: $spacing-md;
+    margin-top: $spacing-xl;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+
+    li {
+      background: $color-white;
+      padding: $spacing-lg;
+      border-radius: $border-radius-md;
+      box-shadow: $shadow-sm;
+      border-left: 6px solid $color-primary;
+      font-size: 1.125rem;
+      color: $color-text;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: all 0.2s;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: $shadow-md;
+        border-left-color: $color-primary-dark;
+      }
+    }
+  }
+}
