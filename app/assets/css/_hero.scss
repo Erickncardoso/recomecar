@@ -62,7 +62,7 @@
       justify-content: flex-start;
       align-items: flex-start;
       min-height: 55vh; // Match overlay
-      padding-top: $spacing-lg; // Reduced top padding
+      padding-top: 0 !important; // Force content to absolute top
     }
   }
 
@@ -74,7 +74,27 @@
     
     @include mobile {
       max-width: 100%; 
-      padding-top: 10px;
+      padding-top: 0 !important; 
+      margin-top: -3rem !important; // Negative margin to pull content WAY up
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start; // Align everything left (or center if desired, but user design seems left-aligned mostly)
+    }
+  }
+
+  .hero-logo {
+    width: 110px; // Reduced from 150px for max vertical space
+    height: auto;
+    margin-bottom: 0.5rem;
+    display: block; // Ensure it behaves as block
+    
+    @include mobile {
+        margin-top: 0; // Force no top margin
+    }
+    
+    @media (min-width: 768px) {
+        width: 200px; // Desktop size
+        margin-bottom: 1rem;
     }
   }
 
@@ -88,22 +108,21 @@
     letter-spacing: -0.03em;
     
     @include mobile {
-      font-size: 2.5rem; // Slightly smaller title to save space
-      color: $color-text;
+      display: none; // Hide title on mobile since logo has text
     }
   }
 
   .hero-subtitle {
     font-size: 1.25rem;
     color: $color-text-light;
-    margin-bottom: $spacing-lg;
+    margin-bottom: 0.5rem; // Minimal spacing
     font-weight: 500;
     line-height: 1.5;
     max-width: 95%;
 
     @include mobile {
       font-size: 1rem;
-      margin-bottom: $spacing-md;
+      margin-bottom: $spacing-sm; // Reduced from md
     }
   }
 
@@ -116,8 +135,8 @@
     @include mobile {
       flex-direction: column;
       align-items: flex-start;
-      gap: 8px;
-      margin-bottom: $spacing-lg;
+      gap: 4px; // Tighter gap
+      margin-bottom: $spacing-md; // Reduced from lg
     }
 
     .badge {

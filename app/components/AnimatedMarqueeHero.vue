@@ -57,7 +57,7 @@ const duplicatedImages = computed(() => [
       </p>
 
       <!-- CTA -->
-      <div style="margin-top: 2rem;">
+      <div class="cta-wrapper">
         <TicketButton :text="componentProps.ctaText" />
       </div>
     </div>

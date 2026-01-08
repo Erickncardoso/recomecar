@@ -66,6 +66,7 @@ const feedbackImages = [
       
       <div class="container">
         <div class="hero-content-wrapper">
+          <img src="/logo.svg" alt="Recomeçar Logo" class="hero-logo" />
           <h1 class="hero-title">RECOMEÇAR</h1>
           <p class="hero-subtitle">7 dias para desinchar, destravar o emagrecimento e começar o ano do jeito certo</p>
           
