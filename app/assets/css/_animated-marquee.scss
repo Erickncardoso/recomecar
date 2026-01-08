@@ -10,7 +10,7 @@
 .animated-marquee-hero {
   position: relative;
   width: 100%;
-  min-height: 100vh; // Occupy full screen or large height
+  min-height: 65vh; // Reduced from 100vh to 65vh to pull marquee/bottom elements UP
   overflow: hidden;
   background-color: #ffffff; // bg-background
   display: flex;
