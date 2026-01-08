@@ -22,8 +22,11 @@
   // Left Column
   .left-col {
     flex: 1;
-    position: sticky;
-    top: 6rem; // Sticky scroll effect
+    // Sticky only on desktop to avoid overlap on mobile
+    @media (min-width: 900px) {
+      position: sticky;
+      top: 6rem; 
+    }
 
     h2 {
       font-family: 'Satoshi', sans-serif;
