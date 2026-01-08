@@ -1,0 +1,58 @@
+.como-funciona-section {
+  padding: $spacing-xl 0;
+  background: $color-white;
+  
+  h2 {
+    text-align: center;
+    color: $color-primary;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: $spacing-md;
+    margin: $spacing-xl 0;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+
+    .feature-card {
+      background: $color-background-alt;
+      padding: $spacing-lg;
+      border-radius: $border-radius-md;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 600;
+      color: $color-text;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        transform: translateY(-5px);
+        background: $color-white;
+        box-shadow: $shadow-md;
+      }
+    }
+  }
+
+  .points-info {
+    text-align: center;
+    margin-top: $spacing-xl;
+    font-size: 1.125rem;
+    background: linear-gradient(to right, rgba($color-primary, 0.05), rgba($color-secondary, 0.05));
+    padding: $spacing-lg;
+    border-radius: $border-radius-md;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    
+    p {
+      margin-bottom: $spacing-xs;
+      &:last-child {
+        margin-top: $spacing-md;
+        font-weight: 700;
+        color: $color-primary;
+      }
+    }
+  }
+}

@@ -1,0 +1,182 @@
+.hero-section {
+  position: relative;
+  min-height: 90vh; 
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background-color: #f8fafc; // Light background fallback
+
+  // 1. Right side: Image
+  .hero-bg-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 65%;
+    height: 100%;
+    background-image: url('/hero-bg.png');
+    background-size: cover;
+    background-position: right top; 
+    z-index: 0;
+    
+    @include mobile {
+      width: 100%;
+      height: 55vh; // INCREASED image height
+      top: auto;
+      bottom: 0;
+      background-image: url('/hero-bg-mobile.png'); 
+      background-position: center top; 
+    }
+  }
+
+  // 2. Left side: WHITE angled overlay
+  .hero-overlay-shape {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%; 
+    height: 100%;
+    background: linear-gradient(135deg, #ffffff 0%, #f3f4f6 100%); 
+    clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
+    z-index: 1;
+    
+    @include mobile {
+      width: 100%;
+      height: 55vh; // REDUCED white area height slightly
+      clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%); 
+      background: #ffffff;
+    }
+  }
+
+  .container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 5%; 
+    max-width: 100%; 
+    
+    @include mobile {
+      padding-left: $spacing-md;
+      padding-right: $spacing-md;
+      justify-content: flex-start;
+      align-items: flex-start;
+      min-height: 55vh; // Match overlay
+      padding-top: $spacing-lg; // Reduced top padding
+    }
+  }
+
+  .hero-content-wrapper {
+    max-width: 550px;
+    padding: $spacing-xl 0;
+    text-align: left;
+    margin-left: 0;
+    
+    @include mobile {
+      max-width: 100%; 
+      padding-top: 10px;
+    }
+  }
+
+  .hero-title {
+    font-size: 4.5rem;
+    line-height: 1;
+    color: $color-text; 
+    margin-bottom: $spacing-md;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.03em;
+    
+    @include mobile {
+      font-size: 2.5rem; // Slightly smaller title to save space
+      color: $color-text;
+    }
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    color: $color-text-light;
+    margin-bottom: $spacing-lg;
+    font-weight: 500;
+    line-height: 1.5;
+    max-width: 95%;
+
+    @include mobile {
+      font-size: 1rem;
+      margin-bottom: $spacing-md;
+    }
+  }
+
+  .hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-sm;
+    margin-bottom: $spacing-xl;
+    
+    @include mobile {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: $spacing-lg;
+    }
+
+    .badge {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      box-shadow: $shadow-sm;
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      color: $color-primary-dark; 
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 600;
+
+      @include mobile {
+        background: $color-white;
+        border: 1px solid #e5e7eb;
+        color: $color-text;
+        border-radius: 8px;
+        padding: 8px 12px;
+        font-size: 0.85rem;
+      }
+      
+      &:hover {
+        transform: translateY(-1px);
+        box-shadow: $shadow-md;
+      }
+    }
+  }
+
+  .hero-separator {
+    display: none;
+  }
+
+  .btn-cta {
+    background: #f3f4f6; // Fundo claro como na imagem
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); // Sombra bem suave
+    border-radius: 12px; // Bordas arredondadas mas não pill completo
+    color: #111827; // Texto escuro
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 1px solid #e5e7eb;
+    
+    @include mobile {
+      width: 100%;
+      text-align: center;
+      padding: 1rem 1.5rem;
+      font-size: 1rem;
+    }
+
+    &:hover {
+      transform: translateY(-2px);
+      background: #ffffff;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      border-color: #d1d5db;
+    }
+  }
+
+}

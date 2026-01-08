@@ -1,0 +1,156 @@
+.learning-section {
+  padding: 0 0 4rem 0; // Padding superior removido totalmente
+  background-color: #0f172a; // Fundo escuro conforme referência (ou preto/cinza muito escuro) ou mantemos light? 
+  // O user mandou um print DARK. Vou fazer DARK para destacar, ou manter light se o site for todo light.
+  // O site atual é predominantemente LIGHT. O print do user é DARK. 
+  // Vou assumir que ele quer o LAYOUT do print. Se eu colocar dark num site light vai ficar estranho bloco solto.
+  // Vou fazer LIGHT mas com cards brancos e fundo off-white/cinza claro para contraste.
+  background-color: #f9fafb; // Gray-50
+  position: relative;
+
+  .content-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 10rem; // Reduzido de 22rem para devolver espaço aos cards
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 4rem;
+
+    @media (max-width: 1024px) {
+      flex-direction: column;
+      gap: 4rem;
+      padding: 0 2rem;
+    }
+  }
+
+  // Coluna Sticky (Esquerda)
+  .sticky-column {
+    flex: 0 0 550px; // Reduzido de 700px para equilibrar
+    position: sticky;
+    top: 20vh;
+    
+    @media (max-width: 1024px) {
+      position: static;
+      flex: none;
+      width: 100%;
+      text-align: center;
+    }
+
+    .section-label {
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #ec4899;
+      font-weight: 600;
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-size: 2.5rem; // Reduzido para ficar mais discreto e garantir 2 linhas
+      color: #111827; // Texto escuro
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+
+      .highlight {
+        color: #ec4899;
+      }
+
+      @media (max-width: 1024px) {
+        font-size: 2.5rem;
+      }
+    }
+  }
+
+  // Coluna de Cards (Direita)
+  .cards-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%; // Garante largura no mobile
+  }
+
+  .learning-card {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 800px; // Aumentado para 800px
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    position: sticky; // Mudado para sticky
+    top: 20vh; // Define o ponto de fixação
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    border: 1px solid #e5e7eb;
+    height: auto;
+    min-height: 420px;
+    z-index: 1; // Garante contexto de empilhamento
+
+    &:hover {
+      box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.1);
+      // transform: translateY(-5px); // Removido movimento novamente
+    }
+
+    // Removendo card-header explícito do CSS pois vamos reposicionar os elementos
+    .card-header {
+      display: none; 
+    }
+
+    .card-content {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+
+      h3 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #1f2937;
+        margin-bottom: 0.5rem;
+      }
+  
+      p {
+        font-size: 1.125rem;
+        color: #6b7280;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+      }
+  
+      .card-image-container {
+        width: 100%;
+        margin-top: auto; // Empurra para o fundo
+        border-radius: 12px;
+        overflow: hidden;
+        border: none;
+        padding: 0;
+        background: none;
+        box-shadow: none;
+  
+        img {
+          width: 100%;
+          height: 220px;
+          object-fit: cover;
+          display: block;
+          border-radius: 12px;
+        }
+      }
+    }
+
+    .card-number {
+      position: absolute;
+      bottom: 2rem;
+      right: 2rem;
+      background-color: #f3f4f6;
+      color: #9ca3af;
+      font-size: 0.875rem;
+      font-weight: 600;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      z-index: 10;
+  }
+}
+}

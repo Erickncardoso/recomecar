@@ -1,0 +1,229 @@
+.how-it-works-section {
+  padding: 8rem 0 2rem 0; // Reduzindo padding inferior de 8rem para 2rem
+  background-color: #ffffff;
+  position: relative;
+  overflow: hidden;
+
+  .section-header {
+    max-width: 1400px;
+    margin: 0 auto 4rem;
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem; // Mais próximo para parecer um bloco único
+    padding: 0 4rem;
+    text-align: left;
+
+    .text-highlight {
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #9ca3af;
+      font-weight: 600;
+      display: block;
+      margin-bottom: 0;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      color: #4b5563;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      margin: 0;
+      line-height: 1.3; // Espaçamento entre as linhas do título
+    }
+
+    @media (max-width: 1024px) {
+      flex-direction: column;
+      gap: 0.5rem;
+      padding: 0 2rem;
+    }
+  }
+
+  .content-wrapper {
+    display: flex;
+    align-items: flex-start; // Alinha itens pelo topo para a visualização não "correr"
+    justify-content: space-between;
+    gap: 15rem; // Aumentado para 15rem para dar mais espaço lateral
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 4rem;
+
+    @media (max-width: 1024px) {
+      flex-direction: column-reverse;
+      gap: 4rem;
+      padding: 0 2rem;
+    }
+  }
+
+  // Lista da Esquerda
+  .steps-list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; // Aumentado gap entre itens
+    padding-top: 2rem; // Pequeno offset para alinhar visualmente
+
+    .step-item {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      padding: 3rem 0; // Aumentado de 2rem para 3rem para mais espaço vertical
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      opacity: 0.3; // PADRÃO APAGADO
+      position: relative;
+
+      &:hover {
+        opacity: 0.5;
+      }
+
+      &.active {
+        opacity: 1; // FOCO TOTAL
+        
+        h3 {
+          transform: translateX(15px);
+          color: #111827;
+        }
+
+        .step-number {
+          color: #ec4899;
+          font-weight: 700;
+        }
+      }
+
+      .step-number {
+        font-family: 'Inter', monospace;
+        font-size: 0.875rem;
+        color: #9ca3af;
+        letter-spacing: 0.05em;
+        min-width: 40px;
+        transition: color 0.4s ease;
+      }
+
+      h3 {
+        font-size: 2.75rem; // Reduzido de 3.5rem para caber melhor em uma linha
+        font-weight: 800;
+        color: #111827;
+        margin: 0;
+        line-height: 1;
+        letter-spacing: -0.02em;
+        white-space: nowrap; // Força uma única linha
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+        @media (max-width: 1280px) {
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+
+  // Lado Direito: Visual + Texto Amplo
+  .visual-display {
+    flex: 1.2; // Dá um pouco mais de peso para a área visual
+    position: sticky; // Torna a visualização fixa enquanto scrola a lista
+    top: 15vh;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-right: 2rem;
+    transition: top 0.8s cubic-bezier(0.16, 1, 0.3, 1); // Transição super suave para o movimento de descida
+
+    &.shifted-down {
+      top: 35vh; // Desce o elemento quando estiver nos últimos itens
+    }
+    
+    .visual-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
+    .active-image {
+      width: 450px; // Aumentado para garantir visibilidade
+      height: 450px;
+      object-fit: contain;
+      mix-blend-mode: multiply;
+      margin-bottom: -3rem; // Margem negativa para aproximar bem o texto do ícone
+      filter: drop-shadow(0 20px 50px rgba(0,0,0,0.05));
+      
+      // ANIMAÇÃO DE ENTRADA DA IMAGEM (Slide Right to Left)
+      transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .visual-info {
+      .description-text {
+        font-size: 1.5rem; // Texto maior e mais legível
+        color: #111827;
+        line-height: 1.5;
+        font-weight: 600;
+        max-width: 500px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        overflow: hidden;
+
+        // ANIMAÇÃO DE CADA PALAVRA (Staggered Reveal)
+        .word {
+          display: inline-block;
+          opacity: 0;
+          transform: translateY(20px);
+          animation: wordReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+      }
+    }
+  }
+}
+
+// ANIMAÇÕES VUE TRANSITION (Customized)
+.fade-enter-active {
+  transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+
+  .active-image {
+    // Esse seletor garante que a imagem anime junto com o pai
+    animation: imageSlideIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+}
+
+.fade-leave-active {
+  transition: all 0.3s ease;
+  .active-image, .visual-info {
+    opacity: 0;
+    filter: blur(4px);
+  }
+}
+
+.fade-enter-from {
+  opacity: 0;
+}
+
+@keyframes imageSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes wordReveal {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Fade global
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

@@ -1,0 +1,193 @@
+.how-it-works-section {
+  padding: 6rem 0;
+  background-color: #f8fafc; // Mantém a consistência com o resto
+  position: relative;
+  overflow: hidden;
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+
+    .text-highlight {
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #ec4899;
+      font-weight: 600;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      color: #1f2937;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+  }
+
+  .content-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+
+    @media (max-width: 900px) {
+      flex-direction: column-reverse; // No mobile, lista embaixo, imagem em cima
+      gap: 3rem;
+    }
+  }
+
+  // Lado Esquerdo: Lista de Títulos
+  .steps-list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0; // Grudadinhos ou leve gap
+    position: relative;
+    padding-left: 2rem;
+    border-left: 1px solid rgba(0,0,0,0.05); // Linha guia sutil
+
+    .step-item {
+      display: flex;
+      align-items: baseline;
+      gap: 2rem;
+      padding: 1.5rem 0;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      opacity: 0.4; // Item inativo fica apagado
+      
+      &:hover {
+        opacity: 0.7;
+      }
+
+      &.active {
+        opacity: 1;
+        
+        h3 {
+          color: #1f2937; // Preto/Chumbo forte
+          transform: translateX(10px); // Ligeiro movimento
+        }
+        
+        .step-number {
+          color: #ec4899; // Destaque no número
+        }
+      }
+
+      .step-number {
+        font-family: monospace;
+        font-size: 1rem;
+        color: #9ca3af;
+        font-weight: 500;
+        min-width: 30px;
+      }
+
+      h3 {
+        font-size: 3rem; // TÍTULOS GRANDES
+        font-weight: 800; // Bold
+        color: #64748b; // Cinza quando inativo
+        margin: 0;
+        line-height: 1.1;
+        transition: all 0.3s ease;
+
+        @media (max-width: 1024px) {
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+
+  // Lado Direito: Visual + Texto
+  .visual-display {
+    flex: 1;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+    
+    .visual-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      max-width: 400px;
+    }
+
+    .active-image {
+      width: 250px;
+      height: 250px;
+      object-fit: contain;
+      // mix-blend-mode removido pois as imagens agora são PNGs transparentes
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .visual-info {
+      h4 {
+        display: none; // Oculto pois já tem o título grande na esquerda, ou exibe se quiser reforçar
+      }
+      
+      p {
+        font-size: 1.125rem;
+        color: #4b5563;
+        line-height: 1.6;
+        animation: slideUp 0.5s ease-out;
+      }
+    }
+
+    .glow-bg {
+      position: absolute;
+      top: 40%; // Focado na imagem
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 350px;
+      height: 350px;
+      background: radial-gradient(circle, rgba(236,72,153,0.2) 0%, rgba(236,72,153,0) 70%);
+      filter: blur(60px);
+      z-index: 1;
+    }
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+// Animações Vue Transition
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.fade-enter-from {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.fade-leave-to {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

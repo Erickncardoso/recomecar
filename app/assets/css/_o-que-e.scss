@@ -1,0 +1,180 @@
+.o-que-e-section {
+  padding: 4rem 0;
+  background-color: #f8fafc; // Mantém o fundo claro da seção geral
+
+  .section-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+
+    h2 {
+      font-size: 2.5rem;
+      color: #1f2937;
+      margin-bottom: 1rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .text-highlight {
+      font-size: 1.25rem;
+      color: #4b5563;
+    }
+  }
+
+  .feature-cards-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto 3rem;
+  }
+
+  .feature-card-item {
+    background: #ffffff; // Fundo branco
+    border-radius: 24px;
+    padding: 8rem 3rem; // Aumentado ainda mais a altura
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    color: #1f2937; // Texto escuro
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03); // Sombra bem leve
+    border: 1px solid rgba(236, 72, 153, 0.15); // Borda rosa clarinho
+
+    // EFEITO STICKY STACK (Empilhamento ao rolar)
+    position: sticky;
+    top: 15vh; // Ponto onde o card "trava" na tela (15% do topo)
+    margin-bottom: 2rem; // Espaço extra para o scroll fluir
+    z-index: 1;
+
+    // Ajuste fino para cada card ter um "tope" ligeiramente diferente (opcional, mas fica chique)
+    &:nth-child(1) { top: 15vh; z-index: 1; }
+    &:nth-child(2) { top: 18vh; z-index: 2; }
+    &:nth-child(3) { top: 21vh; z-index: 3; }
+    &:nth-child(4) { top: 24vh; z-index: 4; }
+
+    // EFEITO RADIAL (Glow atrás da imagem)
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: -20%; // Um pouco para fora
+      transform: translateY(-50%);
+      width: 80%; // Bem grande
+      height: 150%;
+      // Radial SUAVE: rosa/roxo delicado (15%)
+      background: radial-gradient(circle, rgba(236, 72, 153, 0.15) 0%, rgba(236, 72, 153, 0) 70%);
+      pointer-events: none;
+      z-index: 0; // Fica no fundo do card
+      filter: blur(40px); // Suaviza
+    }
+    
+    // Fade inferior com BLUR (Efeito solicitado)
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 120px; // Altura maior para o blur
+      // Gradiente do transparente para o branco (fundo do card)
+      background: linear-gradient(to top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0) 100%);
+      backdrop-filter: blur(6px); // O Blur mágico
+      -webkit-backdrop-filter: blur(6px); // Compatibilidade Safari
+      pointer-events: none;
+      z-index: 5;
+    }
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      padding: 1.5rem;
+      text-align: left;
+      gap: 1.5rem;
+    }
+
+    .card-content {
+      flex: 1;
+      z-index: 2;
+
+      .card-label {
+        display: inline-block;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: #ec4899; // Pink-500 para destaque sutil
+        margin-bottom: 1rem;
+        font-weight: 600;
+      }
+
+      h3 {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: #111827; // Gray-900
+        line-height: 1.1;
+
+        @media (max-width: 768px) {
+          font-size: 1.5rem;
+        }
+      }
+
+      p {
+        font-size: 1.1rem;
+        color: #4b5563; // Gray-600
+        line-height: 1.6;
+      }
+    }
+
+    .card-visual {
+      flex: 0 0 350px;
+      height: 200px;
+      border-radius: 16px;
+      background: #f8fafc; // Fundo cinza bem claro para mesclar
+      border: 1px solid #e5e7eb;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      @media (max-width: 768px) {
+        width: 100%;
+        height: 200px;
+        flex: none;
+      }
+
+      .card-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; // Ou 'contain' dependendo da imagem
+        mix-blend-mode: multiply; // Ajuda a fundir o fundo branco da imagem com o cinza do container
+        opacity: 0.95;
+        transition: transform 0.5s ease;
+      }
+      
+      &:hover .card-image {
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  .negatives {
+    text-align: center;
+    margin-top: 3rem;
+    
+    p {
+      color: #64748b;
+      font-size: 1.1rem;
+      margin: 0.5rem 0;
+      
+      &::before {
+        content: '✕';
+        color: #ef4444;
+        margin-right: 8px;
+        font-weight: bold;
+      }
+    }
+  }
+}
