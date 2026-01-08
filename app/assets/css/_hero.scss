@@ -13,9 +13,9 @@
     right: 0;
     width: 65%;
     height: 100%;
-    background-image: url('/hero-bg.png');
+    background-image: url('/isahero.webp');
     background-size: cover;
-    background-position: right top; 
+    background-position: right -4rem; // Negative top to force image higher than container 
     z-index: 0;
     
     @include mobile {
@@ -23,8 +23,8 @@
       height: 55vh; // INCREASED image height
       top: auto;
       bottom: 0;
-      background-image: url('/hero-bg-mobile.png'); 
-      background-position: center top; 
+      background-image: url('/isahero.webp');  
+      background-position: center 3rem; // Lower image on mobile
     }
 
     @media (min-width: 769px) and (max-width: 1024px) {
