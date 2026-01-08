@@ -59,9 +59,18 @@ const setActive = (index: number) => {
           class="step-item"
           :class="{ active: activeIndex === index }"
           @mouseenter="setActive(index)"
+          @click="setActive(index)"
         >
           <span class="step-number">00{{ index + 1 }}</span>
           <h3>{{ step.title }}</h3>
+          
+          <!-- MOBILE ONLY: Visual display inside the item -->
+          <transition name="accordion">
+            <div class="mobile-visual" v-show="activeIndex === index">
+               <img :src="step.image" :alt="step.title" class="mobile-image" />
+               <p class="mobile-description">{{ step.description }}</p>
+            </div>
+          </transition>
         </div>
       </div>
 
