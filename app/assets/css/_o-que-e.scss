@@ -85,6 +85,10 @@
       -webkit-backdrop-filter: blur(6px); // Compatibilidade Safari
       pointer-events: none;
       z-index: 5;
+
+      @media (max-width: 768px) {
+        display: none; // Remove blur on mobile
+      }
     }
 
     @media (max-width: 768px) {
