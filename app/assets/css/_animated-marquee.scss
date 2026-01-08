@@ -19,7 +19,7 @@
   justify-content: flex-start !important; // Force align top
   text-align: center;
   padding: 0 1rem;
-  padding-top: 0.5rem !important; // Mobile: Ultra tight spacing
+  padding-top: 4rem !important; // Reduced to close the gap
   color: #111827; 
   
   @media (min-width: 768px) {
