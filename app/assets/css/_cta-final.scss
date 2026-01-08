@@ -1,0 +1,51 @@
+.cta-final-section {
+  padding: 8rem 0 10rem;
+  text-align: center;
+  position: relative;
+  background: #ffffff; 
+  overflow: hidden;
+
+  // Clean background, no glow needed for white theme
+  
+  .container {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+  }
+
+  .final-message {
+    margin-bottom: 4rem;
+    
+    p {
+      color: #334155; // Slate-700
+      font-size: 1.5rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+
+      &:last-child {
+        font-size: 2rem;
+        font-weight: 800;
+        color: #0f172a; // Slate-900
+        margin-top: 3rem;
+        font-family: 'Satoshi', sans-serif;
+        text-shadow: none;
+      }
+    }
+  }
+
+  .cta-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+
+    p {
+      font-size: 1.25rem;
+      color: #64748b;
+      font-weight: 500;
+      margin: 0;
+    }
+  }
+}
