@@ -26,6 +26,11 @@
       background-image: url('/hero-bg-mobile.png'); 
       background-position: center top; 
     }
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+      width: 55%; // Show less image on tablet to give text room
+      background-position: center right;
+    }
   }
 
   // 2. Left side: WHITE angled overlay
@@ -44,6 +49,11 @@
       height: 55vh; // REDUCED white area height slightly
       clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%); 
       background: #ffffff;
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+      width: 60%; // Widen white area on tablet
+      clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
     }
   }
 
@@ -93,7 +103,7 @@
     }
     
     @media (min-width: 768px) {
-        width: 200px; // Desktop size
+        width: 130px; // Further reduced desktop size
         margin-bottom: 1rem;
     }
   }
@@ -109,6 +119,10 @@
     
     @include mobile {
       display: none; // Hide title on mobile since logo has text
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+      font-size: 3rem; // Smaller title on tablet
     }
   }
 
