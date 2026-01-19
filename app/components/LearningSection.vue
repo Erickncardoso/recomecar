@@ -68,7 +68,7 @@ const learningTopics = [
             <h3>{{ topic.title }}</h3>
             <p>{{ topic.description }}</p>
             <div class="card-image-container">
-              <img :src="topic.image" :alt="topic.title" loading="lazy" />
+              <NuxtImg :src="topic.image" :alt="topic.title" loading="lazy" sizes="100vw sm:300px" quality="80" />
             </div>
           </div>
           <span class="card-number">0{{ index + 1 }}</span>

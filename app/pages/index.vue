@@ -75,7 +75,7 @@ const feedbackImages = [
   <div class="landing-page">
     <!-- Sessão 1 – Hero principal -->
     <section class="hero-section" id="hero">
-      <img src="/isahero.webp" alt="Hero Background" class="hero-bg-image" fetchpriority="high" />
+      <NuxtImg src="/isahero.webp" alt="Hero Background" class="hero-bg-image" fetchpriority="high" sizes="100vw md:65vw" quality="80" format="webp" />
       <div class="hero-overlay-shape"></div>
       
       <div class="container">
@@ -138,7 +138,7 @@ const feedbackImages = [
               <p>Elimine a retenção de líquidos acumulada nas festas e sinta seu corpo mais leve já nos primeiros dias.</p>
             </div>
             <div class="card-visual">
-              <img src="/images/cards/detox.webp" alt="Desinchaço" class="card-image" />
+              <NuxtImg src="/images/cards/detox.webp" alt="Desinchaço" class="card-image" sizes="100vw sm:500px" quality="80" />
             </div>
           </div>
 
@@ -150,7 +150,7 @@ const feedbackImages = [
               <p>Nada de perder só água. Aprenda a estratégia para queimar gordura de verdade sem passar fome.</p>
             </div>
             <div class="card-visual">
-              <img src="/images/cards/weight.webp" alt="Perda de Peso" class="card-image" />
+              <NuxtImg src="/images/cards/weight.webp" alt="Perda de Peso" class="card-image" sizes="100vw sm:500px" quality="80" />
             </div>
           </div>
 
@@ -162,7 +162,7 @@ const feedbackImages = [
               <p>Sem dieta maluca. Um método simples para retomar a rotina e fazer escolhas melhores automaticamente.</p>
             </div>
             <div class="card-visual">
-              <img src="/images/cards/food.webp" alt="Alimentação Saudável" class="card-image" />
+              <NuxtImg src="/images/cards/food.webp" alt="Alimentação Saudável" class="card-image" sizes="100vw sm:500px" quality="80" />
             </div>
           </div>
 
@@ -174,7 +174,7 @@ const feedbackImages = [
               <p>Troque a culpa por ação. Saiba exatamente o que fazer para ter resultados consistentes em 2026.</p>
             </div>
             <div class="card-visual">
-              <img src="/images/cards/direction.webp" alt="Direção e Foco" class="card-image" />
+              <NuxtImg src="/images/cards/direction.webp" alt="Direção e Foco" class="card-image" sizes="100vw sm:500px" quality="80" />
             </div>
           </div>
         </div>

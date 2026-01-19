@@ -67,7 +67,7 @@ const setActive = (index: number) => {
           <!-- MOBILE ONLY: Visual display inside the item -->
           <transition name="accordion">
             <div class="mobile-visual" v-show="activeIndex === index">
-               <img :src="step.image" :alt="step.title" class="mobile-image" />
+               <NuxtImg :src="step.image" :alt="step.title" class="mobile-image" sizes="100vw" quality="80" />
                <p class="mobile-description">{{ step.description }}</p>
             </div>
           </transition>
@@ -78,10 +78,12 @@ const setActive = (index: number) => {
       <div class="visual-display" :class="{ 'shifted-down': activeIndex >= 3 }">
         <transition name="fade" mode="out-in">
           <div v-if="currentStep" :key="activeIndex" class="visual-content">
-            <img 
+            <NuxtImg 
               :src="currentStep.image" 
               :alt="currentStep.title"
               class="active-image"
+              sizes="100vw md:500px"
+              quality="80"
             />
             <div class="visual-info">
               <p class="description-text">
