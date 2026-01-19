@@ -182,76 +182,6 @@ const feedbackImages = [
     <!-- Sessão 6 – O que você vai aprender nesses 7 dias? -->
     <LearningSection />
 
-    <!-- Sessão 7 – Sessão Clareza AO VIVO -->
-    <section class="sessao-clareza-section" id="ao-vivo">
-      <div class="container">
-        
-        <!-- Left Column: Header -->
-        <div class="header-block">
-          <span class="badge-date">📅 25 de JANEIRO</span>
-          <h2>Sessão Clareza<br>AO VIVO</h2>
-          <div class="description">
-            <p>No último dia, teremos um encontro ao vivo exclusivo. É hora de fechar o ciclo.</p>
-          </div>
-          
-          <div style="margin-bottom: 4rem;">
-            <TicketButton />
-          </div>
-          
-          <div class="insight-box">
-             <p>"Aqui muita mulher percebe que o problema nunca foi falta de disciplina."</p>
-          </div>
-        </div>
-
-        <!-- Right Column: Timeline List -->
-        <div class="timeline-list">
-          <!-- Item 1 -->
-          <div class="timeline-item">
-            <div class="item-meta">
-              ETAPA 1
-            </div>
-            <div class="item-content">
-              <h3>Pesagem final</h3>
-              <p>Vamos conferir os resultados reais de 7 dias de estratégia.</p>
-            </div>
-          </div>
-
-          <!-- Item 2 -->
-          <div class="timeline-item">
-            <div class="item-meta">
-              ETAPA 2
-            </div>
-            <div class="item-content">
-              <h3>Diagnóstico coletivo</h3>
-              <p>Análise profunda do que funcionou e o que precisa de ajuste.</p>
-            </div>
-          </div>
-
-          <!-- Item 3 -->
-          <div class="timeline-item">
-            <div class="item-meta">
-              ETAPA 3
-            </div>
-            <div class="item-content">
-              <h3>Identificação de erros</h3>
-              <p>Entenda os gatilhos que te impediram de ter consistência antes.</p>
-            </div>
-          </div>
-
-          <!-- Item 4 -->
-          <div class="timeline-item">
-            <div class="item-meta">
-              ETAPA 4
-            </div>
-            <div class="item-content">
-              <h3>Direcionamento claro</h3>
-              <p>O próximo passo prático para manter a evolução em 2026.</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
 
     <!-- Sessão Animated Marquee Hero -->
     <AnimatedMarqueeHero 
@@ -262,43 +192,6 @@ const feedbackImages = [
       :images="feedbackImages"
     />
 
-    <!-- Sessão 8 – Premiações -->
-    <section class="premios-section" id="premios">
-      <div class="container">
-        <h2>Premiações</h2>
-        <div class="podium-grid">
-          <!-- 2nd Place -->
-          <div class="podium-card second-place">
-            <div class="medal-icon">
-              <Medal :size="48" color="#94a3b8" />
-              <span class="rank">2</span>
-            </div>
-            <h3>2º lugar</h3>
-            <p class="prize-desc">Ebook: Sessão de avaliação nutricional e comportamental</p>
-          </div>
-
-          <!-- 1st Place -->
-          <div class="podium-card first-place">
-            <div class="medal-icon">
-              <Medal :size="64" color="#fbbf24" fill="#fbbf24" fill-opacity="0.2" />
-              <span class="rank">1</span>
-            </div>
-            <h3>1º lugar</h3>
-            <p class="prize-desc">Sessão de Rastreamento metabólico e Diagnóstico do perfil de emagrecimento</p>
-          </div>
-
-          <!-- 3rd Place -->
-          <div class="podium-card third-place">
-             <div class="medal-icon">
-              <Medal :size="48" color="#b45309" />
-              <span class="rank">3</span>
-            </div>
-            <h3>3º lugar</h3>
-            <p class="prize-desc">Ebook: Receitas práticas de jantar que minhas pacientes AMAM</p>
-          </div>
-        </div>
-      </div>
-    </section>
 
 
           
