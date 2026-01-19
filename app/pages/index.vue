@@ -73,14 +73,14 @@ const feedbackImages = [
           <InfoTicker />
           
           <div class="hero-badges" style="display: none;"> <!-- Ocultado temporariamente em favor do Ticker -->
-            <div class="badge"><Calendar :size="18" /> 19 a 25 de janeiro</div>
+            <div class="badge"><Calendar :size="18" /> 26 de janeiro a 01 de fevereiro</div>
             <div class="badge"><Smartphone :size="18" /> Desafio gratuito</div>
             <div class="badge"><Users :size="18" /> Grupo exclusivo no WhatsApp</div>
           </div>
 
           <div class="hero-separator">⸻</div>
 
-          <TicketButton text="Quero RECOMEÇAR dia 19/01" />
+          <TicketButton text="Quero RECOMEÇAR dia 26/01" />
         </div>
       </div>
     </section>
@@ -209,7 +209,7 @@ const feedbackImages = [
         </div>
         <div class="cta-wrapper">
           <p>Clique no botão abaixo e garanta sua vaga gratuita</p>
-          <TicketButton text="Quero RECOMEÇAR dia 19/01" />
+          <TicketButton text="Quero RECOMEÇAR dia 26/01" />
         </div>
       </div>
     </section>

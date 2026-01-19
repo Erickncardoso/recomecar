@@ -10,13 +10,18 @@ defineProps({
 </script>
 
 <template>
-  <button class="ticket-btn">
+  <a 
+    href="https://chat.whatsapp.com/H8DkeSOJPgNEUpzfS8pDqr" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    class="ticket-btn"
+  >
     <span class="fill-layer"></span>
     <span class="icon-wrapper">
       <Ticket :size="20" />
     </span>
     <span class="label">{{ text }}</span>
-  </button>
+  </a>
 </template>
 
 <style scoped lang="scss">
