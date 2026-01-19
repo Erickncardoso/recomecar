@@ -4,6 +4,9 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@nuxt/fonts', '@nuxt/image'],
   css: ['~/assets/css/main.scss'],
+  build: {
+    transpile: ['lucide-vue-next']
+  },
   app: {
     head: {
       link: [
@@ -18,6 +21,8 @@ export default defineNuxtConfig({
     '/images/**': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
     '/feedbacks/**': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
     '/_nuxt/**': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
+    '/_ipx/**': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
+    '/logo.svg': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
     '/**/*.webp': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
     '/**/*.svg': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
     '/**/*.png': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } }

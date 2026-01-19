@@ -71,7 +71,13 @@ const duplicatedImages = computed(() => [
           class="marquee-item"
           :style="{ transform: `rotate(${index % 2 === 0 ? '-2deg' : '5deg'})` }"
         >
-          <img :src="src" :alt="`Showcase image ${index + 1}`" />
+          <NuxtImg 
+            :src="src" 
+            :alt="`Showcase image ${index + 1}`" 
+            sizes="250px"
+            width="250"
+            quality="80"
+          />
         </div>
       </div>
     </div>

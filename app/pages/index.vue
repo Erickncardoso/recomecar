@@ -5,6 +5,14 @@ import { onMounted, onUnmounted, ref } from 'vue'
 const scrollText = ref<HTMLElement | null>(null)
 
 let ticking = false
+let elementTop = 0
+
+// Recalculate metrics (on mount and resize)
+const updateMetrics = () => {
+  if (!scrollText.value) return
+  const rect = scrollText.value.getBoundingClientRect()
+  elementTop = rect.top + window.scrollY
+}
 
 const updateScroll = () => {
   if (!scrollText.value) {
@@ -12,8 +20,9 @@ const updateScroll = () => {
     return
   }
   
-  const element = scrollText.value // O container pai
-  const rect = element.getBoundingClientRect()
+  const element = scrollText.value 
+  // Optimized: Use cached top - current scroll
+  const currentTop = elementTop - window.scrollY
   const windowHeight = window.innerHeight
   
   // Start earlier to give more scrolling room
@@ -21,20 +30,14 @@ const updateScroll = () => {
   const end = windowHeight * 0.3
   
   // Master progress 0 to 1
-  let rawProgress = (start - rect.top) / (start - end)
+  let rawProgress = (start - currentTop) / (start - end)
   rawProgress = Math.min(Math.max(rawProgress, 0), 1)
   
   // Split into 3 segments
-  // 0.0 - 0.33 -> Item 1
-  // 0.33 - 0.66 -> Item 2
-  // 0.66 - 1.0 -> Item 3
-  
   const p1 = Math.min(Math.max((rawProgress - 0) / 0.33, 0), 1) * 100
   const p2 = Math.min(Math.max((rawProgress - 0.33) / 0.33, 0), 1) * 100
-  const p3 = Math.min(Math.max((rawProgress - 0.66) / 0.34, 0), 1) * 100 // 0.34 to cover remainder
+  const p3 = Math.min(Math.max((rawProgress - 0.66) / 0.34, 0), 1) * 100 
   
-  // Apply to the parent container which these children will read via var() inheritance
-  // OR apply directly if we bound styles. simplest is variables on the wrapper
   element.style.setProperty('--prog-0', `${p1}%`)
   element.style.setProperty('--prog-1', `${p2}%`)
   element.style.setProperty('--prog-2', `${p3}%`)
@@ -50,12 +53,18 @@ const handleScroll = () => {
 }
 
 onMounted(() => {
+  // Wait for next tick/layout to be stable
+  setTimeout(() => {
+    updateMetrics()
+    updateScroll()
+  }, 100)
+  
+  window.addEventListener('resize', updateMetrics)
   window.addEventListener('scroll', handleScroll)
-  // Initial check (direct call to setup initial state)
-  updateScroll()
 })
 
 onUnmounted(() => {
+  window.removeEventListener('resize', updateMetrics)
   window.removeEventListener('scroll', handleScroll)
 })
 import TicketButton from '../components/TicketButton.vue'
@@ -80,7 +89,7 @@ const feedbackImages = [
       
       <div class="container">
         <div class="hero-content-wrapper">
-          <img src="/logo.svg" alt="Recomeçar Logo" class="hero-logo" />
+          <img src="/logo.svg" alt="Recomeçar Logo" class="hero-logo" width="130" height="40" />
           <h1 class="hero-title">RECOMEÇAR</h1>
           <p class="hero-subtitle">7 dias para desinchar, destravar o emagrecimento e começar o ano do jeito certo</p>
           
