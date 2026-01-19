@@ -5,49 +5,49 @@ const learningTopics = [
     title: 'O que comer para desinchar',
     description: 'Descubra os alimentos que combatem a inflamação e eliminam a retensão de líquidos logo nos primeiros dias.',
     icon: '🥗',
-    image: '/images/cards/card_learning_day1_detox.png'
+    image: '/images/cards/card_learning_day1_detox.webp'
   },
   {
     day: 'Dia 2',
     title: 'Como montar um prato que emagrece',
     description: 'Aprenda a proporção ideal de nutrientes para ter saciedade e queimar gordura naturalmente.',
     icon: '🍽️',
-    image: '/images/cards/card_learning_day2_plate.png'
+    image: '/images/cards/card_learning_day2_plate.webp'
   },
   {
     day: 'Dia 3',
     title: 'Escolhas inteligentes fora de casa',
     description: 'Saiba o que pedir em restaurantes e eventos para manter o foco sem deixar de socializar.',
     icon: '🍷',
-    image: '/images/cards/card_learning_day3_social.png'
+    image: '/images/cards/card_learning_day3_social.webp'
   },
   {
     day: 'Dia 4',
     title: 'Como parar de beliscar',
     description: 'Estratégias para controlar os gatilhos mentais e eliminar o hábito de comer sem fome.',
     icon: '🥜',
-    image: '/images/cards/card_learning_day4_snack.png'
+    image: '/images/cards/card_learning_day4_snack.webp'
   },
   {
     day: 'Dia 5',
     title: 'Domine a fome emocional',
     description: 'Entenda a diferença entre fome física e emocional e recupere o controle sobre suas decisões.',
     icon: '🧠',
-    image: '/images/cards/card_learning_day5_emotional.png'
+    image: '/images/cards/card_learning_day5_emotional.webp'
   },
   {
     day: 'Dia 6',
     title: 'Movimento a seu favor',
     description: 'Como integrar atividades simples na rotina que potencializam o seu resultado.',
     icon: '🏃‍♀️',
-    image: '/images/cards/card_learning_day6_movement.png'
+    image: '/images/cards/card_learning_day6_movement.webp'
   },
   {
     day: 'Dia 7',
     title: 'O fim do efeito sanfona',
     description: 'Entenda por que você emagrece e volta a engordar e como quebrar esse ciclo definitivamente.',
     icon: '🔄',
-    image: '/images/cards/card_learning_day7_yoyo.png'
+    image: '/images/cards/card_learning_day7_yoyo.webp'
   }
 ];
 </script>

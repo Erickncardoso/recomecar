@@ -7,32 +7,32 @@ const steps = [
   {
     title: 'Desafio diário simples',
     description: 'Metas diárias alcançáveis para construir novos hábitos sem sobrecarga.',
-    image: '/images/how-it-works/challenge.png'
+    image: '/images/how-it-works/challenge.webp'
   },
   {
     title: 'Guia alimentar estratégico',
     description: 'Saiba exatamente o que priorizar no prato para desinflamar o corpo.',
-    image: '/images/how-it-works/food-guide.png'
+    image: '/images/how-it-works/food-guide.webp'
   },
   {
     title: 'Escolhas inteligentes',
     description: 'Aprenda a fazer trocas inteligentes no mercado e na cozinha.',
-    image: '/images/how-it-works/shopping.png'
+    image: '/images/how-it-works/shopping.webp'
   },
   {
     title: 'Pontuação e progresso',
     description: 'Ganhe pontos ao completar desafios e verifique seu progresso diário.',
-    image: '/images/how-it-works/score.png'
+    image: '/images/how-it-works/score.webp'
   },
   {
     title: 'Suporte e comunidade',
     description: 'Receba suporte do nutricionista e tire dúvidas em tempo real.',
-    image: '/images/how-it-works/community.png'
+    image: '/images/how-it-works/community.webp'
   },
   {
     title: 'Ranking de motivação',
     description: 'Dispute saudavelmente com outras participantes e mantenha o foco.',
-    image: '/images/how-it-works/ranking.png'
+    image: '/images/how-it-works/ranking.webp'
   }
 ];
 

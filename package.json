@@ -16,6 +16,8 @@
     "vue-router": "^4.6.4"
   },
   "devDependencies": {
-    "sass": "^1.97.2"
+    "@nuxt/fonts": "^0.12.1",
+    "sass": "^1.97.2",
+    "sharp": "^0.34.5"
   }
 }

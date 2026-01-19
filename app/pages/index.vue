@@ -4,9 +4,13 @@ import { onMounted, onUnmounted, ref } from 'vue'
 
 const scrollText = ref<HTMLElement | null>(null)
 
+let ticking = false
 
-const handleScroll = () => {
-  if (!scrollText.value) return
+const updateScroll = () => {
+  if (!scrollText.value) {
+    ticking = false
+    return
+  }
   
   const element = scrollText.value // O container pai
   const rect = element.getBoundingClientRect()
@@ -34,11 +38,21 @@ const handleScroll = () => {
   element.style.setProperty('--prog-0', `${p1}%`)
   element.style.setProperty('--prog-1', `${p2}%`)
   element.style.setProperty('--prog-2', `${p3}%`)
+
+  ticking = false
+}
+
+const handleScroll = () => {
+  if (!ticking) {
+    window.requestAnimationFrame(updateScroll)
+    ticking = true
+  }
 }
 
 onMounted(() => {
   window.addEventListener('scroll', handleScroll)
-  handleScroll() // Initial check
+  // Initial check (direct call to setup initial state)
+  updateScroll()
 })
 
 onUnmounted(() => {
@@ -61,7 +75,7 @@ const feedbackImages = [
   <div class="landing-page">
     <!-- Sessão 1 – Hero principal -->
     <section class="hero-section" id="hero">
-      <div class="hero-bg-image"></div>
+      <img src="/isahero.webp" alt="Hero Background" class="hero-bg-image" fetchpriority="high" />
       <div class="hero-overlay-shape"></div>
       
       <div class="container">
@@ -124,7 +138,7 @@ const feedbackImages = [
               <p>Elimine a retenção de líquidos acumulada nas festas e sinta seu corpo mais leve já nos primeiros dias.</p>
             </div>
             <div class="card-visual">
-              <img src="/images/cards/detox.png" alt="Desinchaço" class="card-image" />
+              <img src="/images/cards/detox.webp" alt="Desinchaço" class="card-image" />
             </div>
           </div>
 
@@ -136,7 +150,7 @@ const feedbackImages = [
               <p>Nada de perder só água. Aprenda a estratégia para queimar gordura de verdade sem passar fome.</p>
             </div>
             <div class="card-visual">
-              <img src="/images/cards/weight.png" alt="Perda de Peso" class="card-image" />
+              <img src="/images/cards/weight.webp" alt="Perda de Peso" class="card-image" />
             </div>
           </div>
 
@@ -148,7 +162,7 @@ const feedbackImages = [
               <p>Sem dieta maluca. Um método simples para retomar a rotina e fazer escolhas melhores automaticamente.</p>
             </div>
             <div class="card-visual">
-              <img src="/images/cards/food.png" alt="Alimentação Saudável" class="card-image" />
+              <img src="/images/cards/food.webp" alt="Alimentação Saudável" class="card-image" />
             </div>
           </div>
 
@@ -160,7 +174,7 @@ const feedbackImages = [
               <p>Troque a culpa por ação. Saiba exatamente o que fazer para ter resultados consistentes em 2026.</p>
             </div>
             <div class="card-visual">
-              <img src="/images/cards/direction.png" alt="Direção e Foco" class="card-image" />
+              <img src="/images/cards/direction.webp" alt="Direção e Foco" class="card-image" />
             </div>
           </div>
         </div>
