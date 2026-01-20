@@ -1,5 +1,9 @@
 <script setup lang="ts">
-import { Calendar, Smartphone, Users, ArrowRight, Medal } from 'lucide-vue-next';
+import Calendar from 'lucide-vue-next/dist/esm/icons/calendar.js';
+import Smartphone from 'lucide-vue-next/dist/esm/icons/smartphone.js';
+import Users from 'lucide-vue-next/dist/esm/icons/users.js';
+import ArrowRight from 'lucide-vue-next/dist/esm/icons/arrow-right.js';
+import Medal from 'lucide-vue-next/dist/esm/icons/medal.js';
 import { onMounted, onUnmounted, ref } from 'vue'
 
 const scrollText = ref<HTMLElement | null>(null)

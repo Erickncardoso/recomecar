@@ -1,5 +1,9 @@
 <script setup lang="ts">
-import { Sparkles, Leaf, Zap, Trophy, Heart } from 'lucide-vue-next';
+import Sparkles from 'lucide-vue-next/dist/esm/icons/sparkles.js';
+import Leaf from 'lucide-vue-next/dist/esm/icons/leaf.js';
+import Zap from 'lucide-vue-next/dist/esm/icons/zap.js';
+import Trophy from 'lucide-vue-next/dist/esm/icons/trophy.js';
+import Heart from 'lucide-vue-next/dist/esm/icons/heart.js';
 
 const items = [
   { text: 'Desinchaço em 7 dias', icon: Leaf },
